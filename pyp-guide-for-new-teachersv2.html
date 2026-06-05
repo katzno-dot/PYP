@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The IB PYP: A Guide for Teachers New to the Programme</title>
+<meta name="description" content="A clear, practical onboarding guide to the IB Primary Years Programme (PYP) for educators new to the IB, including the 2024–2027 curriculum refresh.">
+<style>
+  /* ============================================================
+     MID-CENTURY MODERN PALETTE
+     cream paper · walnut ink · teal · terracotta · mustard · olive
+     ============================================================ */
+  :root{
+    --paper:#f4ead4;
+    --paper-2:#fbf4e2;
+    --card:#fffaef;
+    --ink:#2a241c;
+    --ink-soft:#574d3d;
+    --ink-faint:#857a64;
+    --line:#e3d6b8;
+    --line-strong:#cdbc94;
+
+    --primary:#1c6e66;        /* teal */
+    --primary-2:#114a44;
+    --primary-tint:#dbeae6;
+
+    --accent:#c0552b;         /* terracotta */
+    --accent-2:#a8481f;       /* deeper terracotta for white text */
+    --accent-tint:#f7e2d4;
+
+    --mustard:#caa12e;        /* mustard / ochre */
+    --mustard-deep:#856310;
+    --mustard-tint:#f6ecce;
+
+    --blue:#2e6488;           /* petrol blue */
+    --olive:#6a7a36;
+
+    /* theme accent bars (no text on them, so brightness is free) */
+    --t-who:#c0552b;
+    --t-where:#1c6e66;
+    --t-express:#caa12e;
+    --t-works:#2e6488;
+    --t-org:#a23b2e;
+    --t-share:#6a7a36;
+
+    --radius:14px;
+    --radius-sm:9px;
+    --shadow:0 1px 2px rgba(42,36,28,.07),0 10px 26px -14px rgba(42,36,28,.30);
+    --shadow-soft:0 1px 2px rgba(42,36,28,.06),0 5px 16px -12px rgba(42,36,28,.20);
+    --maxw:1200px;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji",sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}*{animation:none!important;transition:none!important}
+  }
+
+  #progress{position:fixed;top:0;left:0;height:4px;width:0%;
+    background:linear-gradient(90deg,var(--primary),var(--mustard),var(--accent));z-index:120;transition:width .12s ease-out}
+
+  .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:.6rem 1rem;border-radius:0 0 8px 0;z-index:200}
+  .skip:focus{left:0}
+
+  a{color:var(--primary);text-decoration-thickness:1px;text-underline-offset:2px}
+  a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+  /* ---------- Hero with atomic/geometric motif ---------- */
+  header.hero{position:relative;overflow:hidden;color:#f6efde;
+    background:
+      radial-gradient(circle at 86% 18%,rgba(202,161,46,.20),transparent 42%),
+      radial-gradient(circle at 10% 96%,rgba(192,85,43,.20),transparent 46%),
+      linear-gradient(158deg,#13524c 0%,#1c6e66 58%,#175f58 100%);
+  }
+  .hero .geo{position:absolute;inset:0;pointer-events:none;opacity:.9}
+  .hero .geo .ring{position:absolute;border-radius:50%;border:2px solid rgba(246,236,206,.18)}
+  .hero .geo .r1{width:230px;height:230px;right:-60px;top:-70px;border-color:rgba(202,161,46,.40)}
+  .hero .geo .r2{width:150px;height:150px;right:0px;top:-10px;border-color:rgba(246,236,206,.22)}
+  .hero .geo .dot{position:absolute;border-radius:50%}
+  .hero .geo .d1{width:18px;height:18px;background:var(--mustard);right:120px;top:120px;opacity:.85}
+  .hero .geo .d2{width:10px;height:10px;background:var(--accent);right:80px;top:160px}
+  .hero .geo .half{position:absolute;left:-40px;bottom:-60px;width:180px;height:90px;
+    background:rgba(192,85,43,.30);border-radius:180px 180px 0 0;transform:rotate(8deg)}
+  .hero .geo .barline{position:absolute;left:40%;top:0;width:2px;height:42%;background:rgba(246,236,206,.14)}
+
+  .hero-inner{position:relative;max-width:var(--maxw);margin:0 auto;padding:74px 24px 64px;z-index:1}
+  .eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;
+    color:#f0e6c8;font-weight:700;margin:0 0 1.1rem;border:1px solid rgba(240,230,200,.4);padding:.42rem .85rem;border-radius:4px}
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--mustard)}
+  .hero h1{font-family:var(--sans);font-weight:800;letter-spacing:-.02em;
+    font-size:clamp(2.1rem,5.4vw,3.6rem);line-height:1.05;margin:.2rem 0 1rem;max-width:17ch}
+  .hero p.lede{font-size:clamp(1.05rem,2.1vw,1.28rem);max-width:62ch;color:#ece3cd;margin:0 0 1.6rem}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.4rem}
+  .pill{background:rgba(246,239,222,.10);border:1px solid rgba(246,239,222,.26);padding:.45rem .9rem;border-radius:4px;font-size:.85rem;color:#f3ecd8}
+  .hero .note-strip{margin-top:2rem;background:rgba(17,74,68,.42);border:1px solid rgba(246,239,222,.20);
+    border-left:5px solid var(--mustard);border-radius:8px;padding:1rem 1.15rem;font-size:.93rem;color:#eee5cf;max-width:72ch}
+  .hero .note-strip strong{color:#fff}
+
+  /* ---------- Layout ---------- */
+  .shell{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .layout{display:block}
+  @media (min-width:1040px){.layout{display:grid;grid-template-columns:264px 1fr;gap:48px;align-items:start}}
+
+  /* ---------- TOC ---------- */
+  nav.toc-desktop{display:none}
+  @media (min-width:1040px){
+    nav.toc-desktop{display:block;position:sticky;top:24px;align-self:start;max-height:calc(100vh - 48px);
+      overflow:auto;padding:18px 4px 24px 0;border-right:2px solid var(--line)}
+  }
+  .toc-title{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-2);font-weight:800;margin:0 0 .8rem;padding-left:.6rem}
+  nav.toc-desktop ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+  nav.toc-desktop li{counter-increment:toc;margin:1px 0}
+  nav.toc-desktop a{display:flex;gap:.6rem;align-items:baseline;text-decoration:none;color:var(--ink-soft);
+    font-size:.9rem;line-height:1.3;padding:.42rem .6rem;border-radius:6px;border-left:3px solid transparent}
+  nav.toc-desktop a::before{content:counter(toc,decimal-leading-zero);font-variant-numeric:tabular-nums;color:var(--ink-faint);font-size:.74rem;font-weight:700;flex:none;width:1.5em}
+  nav.toc-desktop a:hover{background:var(--primary-tint);color:var(--primary-2)}
+  nav.toc-desktop a.active{background:var(--primary-tint);color:var(--primary-2);border-left-color:var(--accent);font-weight:700}
+
+  .toc-mobile{display:block;margin:26px 0 8px}
+  @media (min-width:1040px){.toc-mobile{display:none}}
+  .toc-mobile summary{cursor:pointer;list-style:none;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--mustard);
+    border-radius:var(--radius);padding:.9rem 1.1rem;font-weight:700;color:var(--primary-2);
+    display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow-soft)}
+  .toc-mobile summary::-webkit-details-marker{display:none}
+  .toc-mobile summary .chev{transition:transform .2s}
+  .toc-mobile[open] summary .chev{transform:rotate(90deg)}
+  .toc-mobile ol{list-style:none;margin:.5rem 0 0;padding:.4rem;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);counter-reset:tm}
+  .toc-mobile li{counter-increment:tm}
+  .toc-mobile a{display:flex;gap:.6rem;text-decoration:none;color:var(--ink-soft);padding:.55rem .7rem;border-radius:6px;font-size:.95rem}
+  .toc-mobile a::before{content:counter(tm,decimal-leading-zero);color:var(--ink-faint);font-weight:700;font-size:.78rem}
+  .toc-mobile a:hover{background:var(--primary-tint)}
+
+  /* ---------- Content ---------- */
+  main{padding-bottom:60px}
+  section{padding:46px 0 12px;border-top:2px solid var(--line);scroll-margin-top:24px}
+  section:first-of-type{border-top:none}
+  .kicker{display:inline-flex;align-items:center;gap:.5rem;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;
+    color:var(--primary-2);background:var(--primary-tint);padding:.34rem .75rem;border-radius:4px;margin-bottom:.85rem}
+  h2{font-family:var(--sans);font-weight:800;letter-spacing:-.02em;font-size:clamp(1.55rem,3.4vw,2.2rem);line-height:1.12;margin:.1rem 0 .6rem;color:var(--ink)}
+  h3{font-family:var(--sans);font-weight:700;font-size:1.22rem;margin:1.9rem 0 .5rem;color:var(--primary-2)}
+  h4{font-size:1rem;margin:1.3rem 0 .4rem;color:var(--ink)}
+  p{margin:.55rem 0}
+  .lead{font-size:1.12rem;color:var(--ink-soft);max-width:68ch}
+  ul,ol{padding-left:1.25rem}
+  li{margin:.3rem 0}
+  strong{color:var(--ink)}
+  .muted{color:var(--ink-faint)}
+  .small{font-size:.9rem}
+
+  /* ---------- Callouts ---------- */
+  .box{border-radius:var(--radius);padding:1.05rem 1.2rem 1.1rem;margin:1.1rem 0;border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow-soft)}
+  .box .label{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;margin-bottom:.45rem}
+  .box .ic{width:1.55rem;height:1.55rem;border-radius:6px;display:inline-grid;place-items:center;font-size:.95rem;flex:none;color:#fff}
+  .box p:last-child{margin-bottom:0}
+  .box.big-idea{background:var(--primary-tint);border-color:#bedbd5;border-left:5px solid var(--primary)}
+  .box.big-idea .label{color:var(--primary-2)} .box.big-idea .ic{background:var(--primary)}
+  .box.translation{background:var(--mustard-tint);border-color:#e7d6a0;border-left:5px solid var(--mustard)}
+  .box.translation .label{color:var(--mustard-deep)} .box.translation .ic{background:var(--mustard-deep)}
+  .box.example{background:var(--accent-tint);border-color:#eecdb8;border-left:5px solid var(--accent)}
+  .box.example .label{color:var(--accent-2)} .box.example .ic{background:var(--accent-2)}
+  .box.note{background:#e7eff4;border-color:#cadde9;border-left:5px solid var(--blue)}
+  .box.note .label{color:#1f4a66} .box.note .ic{background:var(--blue)}
+  .box.upcoming{background:#eef1e2;border-color:#d5ddbb;border-left:5px solid var(--olive)}
+  .box.upcoming .label{color:#4c5828} .box.upcoming .ic{background:var(--olive)}
+
+  /* ---------- Cards ---------- */
+  .grid{display:grid;gap:16px;margin:1.2rem 0}
+  .grid.cols-2{grid-template-columns:repeat(auto-fit,minmax(248px,1fr))}
+  .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(212px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.1rem 1.15rem;box-shadow:var(--shadow-soft)}
+  .card h4{margin:.1rem 0 .35rem}
+  .card .tag{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--accent-2)}
+  .card.accent-top{border-top:4px solid var(--accent)}
+
+  /* ---------- Three pillars ---------- */
+  .pillars{display:grid;gap:14px;margin:1.3rem 0 .4rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .pillar{border-radius:var(--radius);padding:1.15rem 1.1rem;color:#fff;position:relative;overflow:hidden;min-height:160px;box-shadow:var(--shadow)}
+  .pillar h4{color:#fff;margin:.2rem 0 .4rem;font-size:1.12rem}
+  .pillar p{color:rgba(255,255,255,.94);font-size:.93rem;margin:.2rem 0 0}
+  .pillar .q{font-size:.78rem;color:rgba(255,255,255,.85);font-style:italic;margin-top:.7rem}
+  .pillar.p1{background:linear-gradient(158deg,#1c6e66,#114a44)}
+  .pillar.p2{background:linear-gradient(158deg,#2e6488,#1d4763)}
+  .pillar.p3{background:linear-gradient(158deg,#b9542b,#893a18)}
+  .agency-bar{margin-top:14px;background:var(--ink);color:#f4ead4;border-radius:var(--radius);padding:.95rem 1.15rem;text-align:center;font-weight:700;letter-spacing:.02em}
+  .agency-bar span{display:block;font-weight:400;color:#d6cbb1;font-size:.9rem;margin-top:.15rem}
+
+  /* ---------- Cycles ---------- */
+  .cycle{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin:1.2rem 0;justify-content:center}
+  .cycle .step{flex:1 1 150px;min-width:140px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:.85rem .9rem;box-shadow:var(--shadow-soft)}
+  .cycle .step .n{width:27px;height:27px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:.82rem;font-weight:800;margin-bottom:.45rem}
+  .cycle .step h4{margin:0 0 .2rem;font-size:.98rem}
+  .cycle .step p{margin:0;font-size:.86rem;color:var(--ink-soft)}
+  .cycle .arrow{align-self:center;color:var(--line-strong);font-size:1.3rem;flex:none}
+
+  .action-cycle{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:1.2rem 0}
+  .action-node{background:var(--primary);color:#fff;border-radius:100px;padding:.7rem 1.4rem;font-weight:700;box-shadow:var(--shadow-soft)}
+  .action-node.alt{background:var(--accent-2)}
+  .action-sep{align-self:center;color:var(--ink-faint);font-size:1.4rem}
+
+  /* ---------- Concept ladder ---------- */
+  .ladder{margin:1.2rem 0;display:grid;gap:8px}
+  .rung{display:grid;grid-template-columns:120px 1fr;border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--line)}
+  .rung .lhs{padding:.7rem .9rem;font-weight:800;color:#fff;display:flex;align-items:center;font-size:.92rem}
+  .rung .rhs{padding:.7rem .95rem;background:var(--card);font-size:.93rem}
+  .rung.r1 .lhs{background:#a99a76}.rung.r2 .lhs{background:#6a8a72}.rung.r3 .lhs{background:var(--primary)}.rung.r4 .lhs{background:var(--primary-2)}
+
+  /* ---------- Unit anatomy ---------- */
+  .anatomy{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.1rem;margin:1.2rem 0;box-shadow:var(--shadow-soft)}
+  .central-idea{background:var(--primary);color:#fff;border-radius:var(--radius-sm);padding:.9rem 1.1rem;text-align:center;margin-bottom:.85rem}
+  .central-idea .t{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#bfe6df;font-weight:800}
+  .central-idea .v{font-size:1.06rem;margin-top:.2rem}
+  .anatomy .row{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .anatomy .chip{border:1px dashed var(--line-strong);border-radius:var(--radius-sm);padding:.7rem .8rem;background:var(--paper-2)}
+  .anatomy .chip .t{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--accent-2)}
+  .anatomy .chip p{margin:.25rem 0 0;font-size:.88rem;color:var(--ink-soft)}
+
+  /* ---------- Theme cards ---------- */
+  .themes{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin:1.3rem 0}
+  .theme{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);display:flex;flex-direction:column}
+  .theme .bar{height:8px}
+  .theme .body{padding:1rem 1.1rem 1.15rem}
+  .theme h4{font-size:1.12rem;margin:.1rem 0 .45rem;font-weight:800}
+  .theme .ess{font-size:.92rem;color:var(--ink-soft);margin:0 0 .6rem}
+  .theme .key{font-size:.8rem;color:var(--ink-faint)}
+  .theme .key b{color:var(--ink-soft)}
+  .b-who{background:var(--t-who)}.b-where{background:var(--t-where)}.b-express{background:var(--t-express)}
+  .b-works{background:var(--t-works)}.b-org{background:var(--t-org)}.b-share{background:var(--t-share)}
+
+  /* ---------- Learner profile ---------- */
+  .lp{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:1.2rem 0}
+  .lp .attr{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:.7rem .85rem;box-shadow:var(--shadow-soft);border-top:3px solid var(--mustard)}
+  .lp .attr b{display:block;color:var(--primary-2)}
+  .lp .attr span{font-size:.85rem;color:var(--ink-soft)}
+
+  /* ---------- Tables ---------- */
+  .table-wrap{overflow-x:auto;margin:1.2rem 0;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-soft)}
+  table{border-collapse:collapse;width:100%;min-width:460px;background:var(--card)}
+  caption{caption-side:top;text-align:left;font-size:.85rem;color:var(--ink-faint);padding:.7rem .9rem .2rem;font-style:italic}
+  th,td{text-align:left;padding:.75rem .9rem;border-bottom:1px solid var(--line);font-size:.94rem;vertical-align:top}
+  thead th{background:var(--primary-tint);color:var(--primary-2);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid var(--line-strong)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:nth-child(even) td{background:var(--paper-2)}
+
+  /* ---------- Misconceptions ---------- */
+  .myth{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin:1.2rem 0}
+  .myth .item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft)}
+  .myth .m{padding:.85rem 1rem;background:var(--accent-tint);border-bottom:1px solid #eecdb8;color:var(--accent-2);font-weight:700;font-size:.95rem}
+  .myth .m::before{content:"Myth — ";font-weight:800}
+  .myth .r{padding:.85rem 1rem;font-size:.93rem;color:var(--ink-soft)}
+  .myth .r::before{content:"Reality";display:block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--primary);margin-bottom:.25rem}
+
+  /* ---------- Glossary ---------- */
+  .glossary{margin:1.2rem 0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft)}
+  .glossary details{border-bottom:1px solid var(--line);background:var(--card)}
+  .glossary details:last-child{border-bottom:none}
+  .glossary summary{cursor:pointer;list-style:none;padding:.85rem 1.05rem;font-weight:700;color:var(--primary-2);display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .glossary summary::-webkit-details-marker{display:none}
+  .glossary summary .plus{flex:none;width:22px;height:22px;border-radius:6px;background:var(--accent-tint);color:var(--accent-2);display:grid;place-items:center;font-weight:800;transition:transform .2s}
+  .glossary details[open] summary .plus{transform:rotate(45deg)}
+  .glossary .def{padding:0 1.05rem 1rem;color:var(--ink-soft);font-size:.94rem}
+
+  /* ---------- Timeline ---------- */
+  .timeline{margin:1.3rem 0;position:relative;padding-left:6px}
+  .timeline .ev{position:relative;padding:0 0 1.3rem 28px;border-left:2px solid var(--line-strong);margin-left:6px}
+  .timeline .ev:last-child{border-left-color:transparent;padding-bottom:0}
+  .timeline .ev::before{content:"";position:absolute;left:-9px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--card);border:3px solid var(--primary)}
+  .timeline .ev.future::before{border-color:var(--accent)}
+  .timeline .date{font-weight:800;color:var(--primary-2);font-size:.92rem}
+  .timeline .ev.future .date{color:var(--accent-2)}
+  .timeline .ev p{margin:.2rem 0 0;font-size:.93rem;color:var(--ink-soft)}
+
+  /* ---------- Checklist ---------- */
+  .checklist{margin:1.2rem 0;display:grid;gap:10px}
+  .checklist label{display:flex;gap:.75rem;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:.8rem .95rem;cursor:pointer;box-shadow:var(--shadow-soft)}
+  .checklist input{margin-top:.25rem;width:18px;height:18px;accent-color:var(--primary);flex:none}
+  .checklist .txt b{display:block;color:var(--ink)}
+  .checklist .txt span{font-size:.9rem;color:var(--ink-soft)}
+  .checklist label:has(input:checked){background:var(--primary-tint);border-color:#bcd9d3}
+  .checklist label:has(input:checked) .txt b{text-decoration:line-through;color:var(--ink-faint)}
+
+  /* ---------- Misc ---------- */
+  .divider-note{font-size:.88rem;color:var(--ink-faint);font-style:italic;margin:1rem 0}
+  .at-a-glance{background:var(--ink);color:#f1e7d2;border-radius:var(--radius);padding:1.3rem 1.4rem;margin:1.3rem 0;position:relative;overflow:hidden}
+  .at-a-glance::after{content:"";position:absolute;right:-40px;top:-40px;width:130px;height:130px;border-radius:50%;border:14px solid rgba(202,161,46,.18)}
+  .at-a-glance .t{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mustard);font-weight:800;margin-bottom:.6rem}
+  .at-a-glance ul{margin:.3rem 0 0;padding-left:1.2rem}
+  .at-a-glance li{margin:.4rem 0;color:#e6dcc6}
+  .at-a-glance li::marker{color:var(--accent)}
+  .at-a-glance strong{color:#fff}
+
+  footer{background:#13332f;color:#cdd6cf;padding:40px 0 48px;margin-top:30px}
+  footer .shell{max-width:var(--maxw)}
+  footer h4{color:#fff;font-size:1.2rem;margin:0 0 .6rem;font-weight:800}
+  footer p{font-size:.9rem;max-width:75ch;color:#aebbb1}
+  footer a{color:var(--mustard)}
+  .src-list{font-size:.84rem;color:#9fb0a6;columns:2;column-gap:32px;margin-top:.8rem}
+  @media(max-width:640px){.src-list{columns:1}}
+  .src-list li{break-inside:avoid;margin:.3rem 0}
+
+  .backtop{position:fixed;right:18px;bottom:18px;z-index:90;background:var(--accent-2);color:#fff;border:none;border-radius:50%;
+    width:46px;height:46px;font-size:1.1rem;cursor:pointer;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+  .backtop.show{opacity:1;pointer-events:auto}
+  .backtop:hover{transform:translateY(-2px)}
+
+  /* ---------- Print ---------- */
+  @media print{
+    :root{--shadow:none;--shadow-soft:none}
+    body{background:#fff;font-size:11pt;color:#000}
+    #progress,.backtop,nav.toc-desktop,.toc-mobile,.skip,.hero .geo{display:none!important}
+    .layout{display:block}
+    header.hero{background:#fff;color:#000;border-bottom:2px solid #000}
+    .hero .eyebrow,.hero .pill,.hero .note-strip{border-color:#999;color:#000;background:#fff}
+    .hero h1,.hero p.lede{color:#000}
+    section{break-inside:avoid;border-top:1px solid #bbb}
+    .card,.box,.theme,.pillar,.glossary,.table-wrap,.at-a-glance,.myth .item{box-shadow:none}
+    .pillar,.central-idea,.action-node,.at-a-glance{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .glossary .def{display:block!important}
+    a{color:#000;text-decoration:underline}
+    footer{background:#fff;color:#000;border-top:2px solid #000}
+    footer a,footer p,footer h4{color:#000}
+  }
+</style>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero">
+  <div class="geo" aria-hidden="true">
+    <span class="ring r1"></span><span class="ring r2"></span>
+    <span class="dot d1"></span><span class="dot d2"></span>
+    <span class="half"></span><span class="barline"></span>
+  </div>
+  <div class="hero-inner">
+    <span class="eyebrow"><span class="dot"></span>An onboarding guide for educators new to the IB</span>
+    <h1>The IB Primary Years Programme, made clear.</h1>
+    <p class="lede">A practical, plain-language guide to how the PYP actually works — the big picture first, then the structures, terminology, and what it all means on a Monday morning in your classroom.</p>
+    <div class="meta">
+      <span class="pill">Ages 3–12</span>
+      <span class="pill">Transdisciplinary &amp; inquiry-based</span>
+      <span class="pill">Reflects the 2024–2027 curriculum refresh</span>
+      <span class="pill">For teachers, TAs, specialists, coordinators &amp; leaders</span>
+    </div>
+    <div class="note-strip">
+      <strong>How to use this guide:</strong> Read top to bottom for a full orientation, or jump to a section using the contents list. Specifics that are still rolling out are flagged as <em>upcoming</em> or <em>to be confirmed by official IB guidance</em> — always check My&nbsp;IB and the Programme Resource Centre for the authoritative current documents at your school.
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+<div class="layout">
+
+  <nav class="toc-desktop" aria-label="Table of contents">
+    <p class="toc-title">Contents</p>
+    <ol>
+      <li><a href="#what">What the PYP is</a></li>
+      <li><a href="#purpose">Purpose &amp; philosophy</a></li>
+      <li><a href="#learner">The learner at the centre</a></li>
+      <li><a href="#agency">Agency, voice &amp; choice</a></li>
+      <li><a href="#profile">The IB Learner Profile</a></li>
+      <li><a href="#inquiry">Inquiry-based learning</a></li>
+      <li><a href="#transdisciplinary">Transdisciplinary learning</a></li>
+      <li><a href="#themes">The six themes</a></li>
+      <li><a href="#concepts">Concepts &amp; understanding</a></li>
+      <li><a href="#atl">Approaches to Learning</a></li>
+      <li><a href="#action">Action in the PYP</a></li>
+      <li><a href="#assessment">Assessment</a></li>
+      <li><a href="#exhibition">The Exhibition</a></li>
+      <li><a href="#planning">Planning &amp; collaboration</a></li>
+      <li><a href="#classroom">In the classroom</a></li>
+      <li><a href="#examples">Classroom examples</a></li>
+      <li><a href="#misconceptions">Common misconceptions</a></li>
+      <li><a href="#glossary">Glossary</a></li>
+      <li><a href="#refresh">PYP 2026 / upcoming changes</a></li>
+      <li><a href="#first">Where to focus first</a></li>
+    </ol>
+  </nav>
+
+  <main id="main">
+
+    <details class="toc-mobile">
+      <summary>Jump to a section <span class="chev">›</span></summary>
+      <ol>
+        <li><a href="#what">What the PYP is</a></li>
+        <li><a href="#purpose">Purpose &amp; philosophy</a></li>
+        <li><a href="#learner">The learner at the centre</a></li>
+        <li><a href="#agency">Agency, voice &amp; choice</a></li>
+        <li><a href="#profile">The IB Learner Profile</a></li>
+        <li><a href="#inquiry">Inquiry-based learning</a></li>
+        <li><a href="#transdisciplinary">Transdisciplinary learning</a></li>
+        <li><a href="#themes">The six themes</a></li>
+        <li><a href="#concepts">Concepts &amp; understanding</a></li>
+        <li><a href="#atl">Approaches to Learning</a></li>
+        <li><a href="#action">Action in the PYP</a></li>
+        <li><a href="#assessment">Assessment</a></li>
+        <li><a href="#exhibition">The Exhibition</a></li>
+        <li><a href="#planning">Planning &amp; collaboration</a></li>
+        <li><a href="#classroom">In the classroom</a></li>
+        <li><a href="#examples">Classroom examples</a></li>
+        <li><a href="#misconceptions">Common misconceptions</a></li>
+        <li><a href="#glossary">Glossary</a></li>
+        <li><a href="#refresh">PYP 2026 / upcoming changes</a></li>
+        <li><a href="#first">Where to focus first</a></li>
+      </ol>
+    </details>
+
+    <!-- 1 -->
+    <section id="what">
+      <span class="kicker">01 · Start here</span>
+      <h2>What the PYP is</h2>
+      <p class="lead">The Primary Years Programme is a curriculum <em>framework</em> from the International Baccalaureate (IB) for students aged 3 to 12. It doesn't tell you exactly what to teach each day — it gives you a structured, research-informed way to organise learning around big ideas, real inquiry, and the development of the whole child.</p>
+
+      <div class="box big-idea">
+        <span class="label"><span class="ic">◆</span>Big Idea</span>
+        <p>The PYP is a <strong>framework, not a fixed syllabus</strong>. It defines <em>how</em> learning is structured and what kind of learner you're growing, while leaving schools and teachers significant freedom over the specific content.</p>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="card accent-top"><span class="tag">Who it's for</span><h4>Ages 3–12</h4><p class="small">Early years through the end of primary school. Any school teaching this age range can apply to become an IB World School offering the PYP.</p></div>
+        <div class="card accent-top"><span class="tag">The shape of it</span><h4>Transdisciplinary</h4><p class="small">Learning is organised around six themes that cut across traditional subjects, so children see how knowledge connects in the real world.</p></div>
+        <div class="card accent-top"><span class="tag">The engine</span><h4>Inquiry-based</h4><p class="small">Students build understanding by questioning, investigating, and constructing meaning — guided by the teacher, not simply told.</p></div>
+      </div>
+
+      <div class="box translation">
+        <span class="label"><span class="ic">→</span>Teacher Translation</span>
+        <p>If you're coming from a content-driven system, the biggest shift is this: your job moves from <em>delivering information</em> toward <em>designing experiences</em> in which children investigate meaningful questions and build understanding they can transfer to new situations.</p>
+      </div>
+
+      <p>The PYP is the first programme in the <strong>IB continuum</strong>, which continues into the Middle Years Programme (MYP), the Diploma Programme (DP), and the Career-related Programme (CP). It is not a prerequisite for the later programmes, but it sets up the same values: inquiry, international-mindedness, and learning that matters beyond the classroom.</p>
+    </section>
+
+    <!-- 2 -->
+    <section id="purpose">
+      <span class="kicker">02 · The why</span>
+      <h2>The purpose &amp; philosophy of the PYP</h2>
+      <p class="lead">At its heart, the PYP aims to develop <strong>internationally-minded people</strong> who, recognising their common humanity and shared guardianship of the planet, help to create a better and more peaceful world.</p>
+
+      <p>That mission shows up in the classroom as a focus on the <strong>whole child</strong> — intellectual, social, emotional, and physical growth — rather than test scores alone. The PYP is built on <strong>constructivist and social-constructivist</strong> ideas: learners actively build understanding, and they do it best in dialogue with others.</p>
+
+      <div class="grid cols-2">
+        <div class="card"><span class="tag">What it values</span><h4>Education as engaged &amp; significant</h4><p class="small">Learning should be engaging, relevant, challenging, and significant. Children explore ideas that genuinely matter to them and to the world.</p></div>
+        <div class="card"><span class="tag">What it produces</span><h4>Knowledge plus dispositions</h4><p class="small">Students develop knowledge, conceptual understanding, skills, and the attributes of the Learner Profile — and use them to make a difference.</p></div>
+      </div>
+
+      <div class="box note">
+        <span class="label"><span class="ic">i</span>Key phrase you'll hear constantly</span>
+        <p><strong>International-mindedness.</strong> It doesn't mean "learning about other countries." It means developing the dispositions — curiosity, open-mindedness, care — to understand multiple perspectives and act responsibly in an interconnected world.</p>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section id="learner">
+      <span class="kicker">03 · The model</span>
+      <h2>The learner at the centre</h2>
+      <p class="lead">The PYP curriculum framework rests on <strong>three pillars</strong>, with <strong>agency</strong> threaded through all of them. Together they answer three questions: <em>what is learning, how is it best supported, and who makes it happen?</em></p>
+
+      <div class="pillars">
+        <div class="pillar p1"><h4>The Learner</h4><p>The outcomes for individual students — and the outcomes they seek for themselves.</p><p class="q">"What is learning?"</p></div>
+        <div class="pillar p2"><h4>Learning &amp; Teaching</h4><p>The distinctive features of how learning happens and how teachers support it.</p><p class="q">"How best to support learners?"</p></div>
+        <div class="pillar p3"><h4>The Learning Community</h4><p>The social side of learning and the role of the whole community — peers, families, staff.</p><p class="q">"Who facilitates learning and teaching?"</p></div>
+      </div>
+      <div class="agency-bar">Agency &amp; self-efficacy run through all three pillars
+        <span>The learner is an agent of their own — and others' — learning.</span>
+      </div>
+
+      <p>Within "the learner" sit the framework's <strong>essential elements</strong> — the things every unit is built from: the <strong>Learner Profile</strong> (who we're becoming), <strong>knowledge</strong> (organised through the transdisciplinary themes), <strong>conceptual understanding</strong> (the big ideas), <strong>Approaches to Learning</strong> (transferable skills), and <strong>action</strong> (learning that leads to doing). Each of these has its own section below.</p>
+    </section>
+
+    <!-- 4 -->
+    <section id="agency">
+      <span class="kicker">04 · The heartbeat</span>
+      <h2>Agency, voice, choice &amp; ownership</h2>
+      <p class="lead">Agency is the idea that students are <strong>partners in learning</strong>, not passive recipients of it. It is arguably the central principle of the modern PYP — and the one new teachers most often underestimate.</p>
+
+      <div class="grid cols-3">
+        <div class="card accent-top"><h4>Voice</h4><p class="small">Students share ideas, ask questions, and influence what and how they learn. Their thinking is visible and taken seriously.</p></div>
+        <div class="card accent-top"><h4>Choice</h4><p class="small">Students make real decisions — about how to investigate, how to show learning, and where an inquiry should go next.</p></div>
+        <div class="card accent-top"><h4>Ownership</h4><p class="small">Students set goals, monitor their progress, and take responsibility for their learning and its consequences.</p></div>
+      </div>
+
+      <div class="box translation">
+        <span class="label"><span class="ic">→</span>Teacher Translation</span>
+        <p>Agency is <em>not</em> "the children do whatever they want." It's intentional structure that creates space for genuine decision-making. You still plan rigorously — you plan <strong>for</strong> choice rather than removing it.</p>
+      </div>
+
+      <p>Closely linked is <strong>self-efficacy</strong>: a learner's belief that their efforts make a difference. Students with strong self-efficacy take initiative in their learning and take action in their community. Building it is part of your daily work — through trust, feedback, and authentic responsibility.</p>
+    </section>
+
+    <!-- 5 -->
+    <section id="profile">
+      <span class="kicker">05 · Who we're growing</span>
+      <h2>The IB Learner Profile</h2>
+      <p class="lead">The Learner Profile is a set of <strong>ten attributes</strong> that describe the kind of person the whole IB continuum aims to develop. It's the shared language of every IB World School, from age 3 to 18, and it belongs to everyone — students, teachers, leaders, and families.</p>
+
+      <div class="lp">
+        <div class="attr"><b>Inquirers</b><span>Curious; develop skills for inquiry and lifelong learning.</span></div>
+        <div class="attr"><b>Knowledgeable</b><span>Explore ideas of local and global significance.</span></div>
+        <div class="attr"><b>Thinkers</b><span>Think critically and creatively to solve problems.</span></div>
+        <div class="attr"><b>Communicators</b><span>Express ideas confidently in many ways and languages.</span></div>
+        <div class="attr"><b>Principled</b><span>Act with integrity, honesty, fairness, and respect.</span></div>
+        <div class="attr"><b>Open-minded</b><span>Value other perspectives, cultures, and traditions.</span></div>
+        <div class="attr"><b>Caring</b><span>Show empathy, compassion, and a commitment to service.</span></div>
+        <div class="attr"><b>Risk-takers (Courageous)</b><span>Approach the unfamiliar with forethought and resilience.</span></div>
+        <div class="attr"><b>Balanced</b><span>Attend to intellectual, physical, and emotional wellbeing.</span></div>
+        <div class="attr"><b>Reflective</b><span>Consider their learning and experience to grow.</span></div>
+      </div>
+
+      <div class="box example">
+        <span class="label"><span class="ic">✦</span>Classroom Example</span>
+        <p>Rather than displaying all ten as posters and moving on, a teacher names attributes <em>as they happen</em>: "You kept going when that was hard — that's being a <strong>risk-taker</strong>." Naming the behaviour in the moment is what makes the profile real for young learners.</p>
+      </div>
+      <p class="divider-note">The Learner Profile is developmental, not a checklist or a behaviour-reward chart. Children grow into the attributes over years; teacher modelling matters as much as student practice.</p>
+    </section>
+
+    <!-- 6 -->
+    <section id="inquiry">
+      <span class="kicker">06 · The engine</span>
+      <h2>Inquiry-based learning</h2>
+      <p class="lead">Inquiry is the PYP's main approach to learning. Students build understanding by <strong>wondering, investigating, and making sense of things</strong> — guided by a skilled teacher who designs the conditions for thinking.</p>
+
+      <p>Inquiry sits on a spectrum. Sometimes it's <strong>structured</strong> (teacher-framed question and method), sometimes <strong>guided</strong> (students choose the path within a shared focus), and sometimes <strong>open</strong> (students drive question and method). Skilled PYP teachers move fluidly along this spectrum depending on the goal and the learners.</p>
+
+      <h3>A common inquiry rhythm</h3>
+      <p class="small muted">Many PYP schools use a cycle like the one below to shape a unit. The phases are a widely-used model, not fixed IB terminology — your school may name them differently.</p>
+      <div class="cycle">
+        <div class="step"><div class="n">1</div><h4>Tune in</h4><p>Surface what students already know, think, and wonder.</p></div>
+        <span class="arrow">→</span>
+        <div class="step"><div class="n">2</div><h4>Find out</h4><p>Gather information and new experiences.</p></div>
+        <span class="arrow">→</span>
+        <div class="step"><div class="n">3</div><h4>Sort out</h4><p>Organise, analyse, and make sense of it.</p></div>
+        <span class="arrow">→</span>
+        <div class="step"><div class="n">4</div><h4>Go further</h4><p>Pursue questions that have emerged.</p></div>
+        <span class="arrow">→</span>
+        <div class="step"><div class="n">5</div><h4>Reflect &amp; act</h4><p>Draw conclusions and decide what to do.</p></div>
+      </div>
+
+      <div class="box translation">
+        <span class="label"><span class="ic">→</span>Teacher Translation</span>
+        <p>Inquiry is not "no teaching." You teach skills, model thinking, give direct instruction when it serves the inquiry, and provide carefully chosen provocations and resources. The difference is that the learning is <em>built with</em> students rather than simply handed to them.</p>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section id="transdisciplinary">
+      <span class="kicker">07 · How learning connects</span>
+      <h2>Transdisciplinary learning</h2>
+      <p class="lead">"Transdisciplinary" means learning that <strong>rises above and connects across</strong> individual subjects, organised around themes of genuine significance. Subjects still matter — but they serve a bigger conceptual purpose.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Three ways subjects can relate — only the third is transdisciplinary</caption>
+          <thead><tr><th>Approach</th><th>What it looks like</th><th>Where meaning lives</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Disciplinary</strong></td><td>Maths, then reading, then science — taught separately.</td><td>Inside each subject.</td></tr>
+            <tr><td><strong>Multidisciplinary</strong></td><td>A shared topic ("Victorians") with separate subject activities loosely linked by it.</td><td>Still mostly inside each subject; the link is surface-level.</td></tr>
+            <tr><td><strong>Transdisciplinary</strong></td><td>A conceptual central idea that subjects genuinely combine to explore.</td><td>In the big idea — subjects are tools for understanding it.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box big-idea">
+        <span class="label"><span class="ic">◆</span>Big Idea</span>
+        <p>In a transdisciplinary unit, you don't ask "what maths can I bolt onto this topic?" You ask "what understanding are we building, and which subjects help us get there?" The <strong>concept comes first</strong>; the subjects follow.</p>
+      </div>
+
+      <p>PYP students still develop strong subject knowledge and skills — in language, mathematics, the arts, science, social studies, and physical/personal/social education. Some learning is taught within units of inquiry; some (like aspects of maths and language) is taught alongside them and connected wherever it's meaningful, not forced.</p>
+    </section>
+
+    <!-- 8 -->
+    <section id="themes">
+      <span class="kicker">08 · The organising frame</span>
+      <h2>The six transdisciplinary themes</h2>
+      <p class="lead">Six themes give the whole programme its shape. Each year, classes explore units under these themes, building a school-wide <strong>Programme of Inquiry</strong>. The themes are the same across every PYP school in the world.</p>
+
+      <div class="themes">
+        <div class="theme"><div class="bar b-who"></div><div class="body"><h4>Who we are</h4><p class="ess">Identity; beliefs and values; health and relationships; what it means to be human — including our connection to other living things.</p><p class="key"><b>Plain English:</b> Who am I, and how do I relate to others and the world?</p></div></div>
+        <div class="theme"><div class="bar b-where"></div><div class="body"><h4>Where we are in place &amp; time</h4><p class="ess">Orientation in place and time; personal histories; journeys, discoveries, and the relationships between people and environments over time.</p><p class="key"><b>Plain English:</b> Where do we come from, and how has that shaped us?</p></div></div>
+        <div class="theme"><div class="bar b-express"></div><div class="body"><h4>How we express ourselves</h4><p class="ess">The ways we discover and express ideas, feelings, culture, beliefs, and creativity — across many forms and media.</p><p class="key"><b>Plain English:</b> How do we communicate and create meaning?</p></div></div>
+        <div class="theme"><div class="bar b-works"></div><div class="body"><h4>How the world works</h4><p class="ess">The natural world and its laws; the interaction of the natural and human-made; how scientific principles shape our lives and environments.</p><p class="key"><b>Plain English:</b> How do natural and physical systems work?</p></div></div>
+        <div class="theme"><div class="bar b-org"></div><div class="body"><h4>How we organize ourselves</h4><p class="ess">Human-made systems and communities; how organisations work; decision-making; economic activity and its impact on people and the environment.</p><p class="key"><b>Plain English:</b> How do people structure and run their societies?</p></div></div>
+        <div class="theme"><div class="bar b-share"></div><div class="body"><h4>Sharing the planet</h4><p class="ess">Rights and responsibilities in a shared world; communities and relationships within and between them; access to equal opportunities; peace and conflict resolution.</p><p class="key"><b>Plain English:</b> How do we live well together and with the planet?</p></div></div>
+      </div>
+
+      <div class="box upcoming">
+        <span class="label"><span class="ic">↻</span>Recently updated</span>
+        <p>The six theme <em>names</em> are unchanged, but the IB published <strong>new theme descriptors in December 2024</strong>. The descriptors now use a short driving statement plus three conceptual support statements, and rebalance the focus from "commonalities of human experience" toward the <strong>interconnectedness of the human and natural worlds</strong>. The summaries above reflect that direction. For the exact official wording, use the descriptors on the Programme Resource Centre / My&nbsp;IB. Schools have until <strong>September 2027</strong> to fully transition.</p>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section id="concepts">
+      <span class="kicker">09 · The depth</span>
+      <h2>Concepts &amp; conceptual understanding</h2>
+      <p class="lead">Concepts are the <strong>big, transferable ideas</strong> that lift learning above isolated facts. They're what lets a child take an understanding built in one unit and apply it somewhere completely new.</p>
+
+      <div class="ladder">
+        <div class="rung r1"><div class="lhs">Facts</div><div class="rhs">"A frog lays eggs in water." Specific, useful, but tied to one case.</div></div>
+        <div class="rung r2"><div class="lhs">Topic</div><div class="rhs">"Life cycles of animals." Organises related facts.</div></div>
+        <div class="rung r3"><div class="lhs">Concept</div><div class="rhs"><strong>Change.</strong> A transferable lens that applies far beyond frogs.</div></div>
+        <div class="rung r4"><div class="lhs">Understanding</div><div class="rhs">"Living things change in predictable stages over time." A durable idea students can transfer.</div></div>
+      </div>
+
+      <h3>The seven key (specified) concepts</h3>
+      <p class="small muted">Each is best remembered through the question it prompts students to ask.</p>
+      <div class="grid cols-3">
+        <div class="card"><h4>Form</h4><p class="small">What is it like?</p></div>
+        <div class="card"><h4>Function</h4><p class="small">How does it work?</p></div>
+        <div class="card"><h4>Causation</h4><p class="small">Why is it like it is?</p></div>
+        <div class="card"><h4>Change</h4><p class="small">How is it transforming?</p></div>
+        <div class="card"><h4>Connection</h4><p class="small">How is it linked to other things?</p></div>
+        <div class="card"><h4>Perspective</h4><p class="small">What are the points of view?</p></div>
+        <div class="card"><h4>Responsibility</h4><p class="small">What is our responsibility?</p></div>
+      </div>
+
+      <div class="box upcoming">
+        <span class="label"><span class="ic">↻</span>Terminology note (emerging)</span>
+        <p>Under the new subject guidance, you'll increasingly see the seven concepts referred to as <strong>"specified concepts,"</strong> and the more subject-specific ideas attached to a unit (previously called <em>related concepts</em>) referred to as <strong>"additional concepts."</strong> The underlying meanings are unchanged. Confirm the exact terminology your school is adopting against official IB guidance, as this is part of the ongoing refresh.</p>
+      </div>
+
+      <div class="box translation">
+        <span class="label"><span class="ic">→</span>Teacher Translation</span>
+        <p>When planning, ask: "If students forget the facts in five years, what <em>idea</em> do I want to stick?" That idea, expressed conceptually, is the spine of your unit's <strong>central idea</strong>.</p>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section id="atl">
+      <span class="kicker">10 · The skills</span>
+      <h2>Approaches to Learning (ATL)</h2>
+      <p class="lead">Approaches to Learning are the <strong>transferable skills</strong> students develop through their learning — the "how" of being a capable, independent learner. They're grouped into five categories and run through the whole IB continuum.</p>
+
+      <div class="grid cols-3">
+        <div class="card accent-top"><h4>Thinking skills</h4><p class="small">Critical and creative thinking, transfer, reflection, metacognition.</p></div>
+        <div class="card accent-top"><h4>Research skills</h4><p class="small">Formulating questions, locating and evaluating information, using media ethically.</p></div>
+        <div class="card accent-top"><h4>Communication skills</h4><p class="small">Listening, speaking, reading, writing, and using multiple modes and languages.</p></div>
+        <div class="card accent-top"><h4>Social skills</h4><p class="small">Collaboration, relationships, resolving conflict, making group decisions.</p></div>
+        <div class="card accent-top"><h4>Self-management skills</h4><p class="small">Organisation, time and task management, states of mind, perseverance.</p></div>
+      </div>
+
+      <div class="box example">
+        <span class="label"><span class="ic">✦</span>Classroom Example</span>
+        <p>A unit on community decisions might explicitly teach the <strong>social skill</strong> of reaching group consensus — modelled, practised, and reflected on — alongside the content. ATL skills are taught on purpose, not assumed.</p>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section id="action">
+      <span class="kicker">11 · Learning that does</span>
+      <h2>Action in the PYP</h2>
+      <p class="lead">Action is the bridge between understanding and doing. When learning is meaningful, students are moved to <strong>do something with it</strong> — and that is treated as a natural, expected outcome of inquiry, not an add-on.</p>
+
+      <h3>The cycle of action</h3>
+      <div class="action-cycle">
+        <span class="action-node">Reflect</span>
+        <span class="action-sep">→</span>
+        <span class="action-node alt">Choose</span>
+        <span class="action-sep">→</span>
+        <span class="action-node">Act</span>
+        <span class="action-sep">↺</span>
+      </div>
+      <p class="small muted" style="text-align:center">Students reflect on what they understand, choose a response, act — and the cycle continues as they reflect again.</p>
+
+      <h3>Action takes many forms</h3>
+      <div class="grid cols-3">
+        <div class="card"><h4>Participation</h4><p class="small">Engaging actively in their own class, school, or community life.</p></div>
+        <div class="card"><h4>Advocacy</h4><p class="small">Speaking up to support a cause or a change they believe in.</p></div>
+        <div class="card"><h4>Social justice</h4><p class="small">Acting on fairness, rights, and equity.</p></div>
+        <div class="card"><h4>Social entrepreneurship</h4><p class="small">Creating innovative responses to community needs.</p></div>
+        <div class="card"><h4>Lifestyle choices</h4><p class="small">Changing personal habits and behaviours.</p></div>
+      </div>
+
+      <div class="box note">
+        <span class="label"><span class="ic">i</span>Important</span>
+        <p>Action is <strong>student-initiated and authentic</strong>. A small, genuine action a child chooses themselves matters more than a large, teacher-imposed "project." Sometimes action is quiet and internal — a changed mind is action too.</p>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section id="assessment">
+      <span class="kicker">12 · Knowing where learners are</span>
+      <h2>Assessment in the PYP</h2>
+      <p class="lead">PYP assessment is about <strong>understanding and improving learning</strong>, not ranking children. There are no external standardised PYP exams; teachers gather rich evidence to inform teaching and to help students grow.</p>
+
+      <div class="grid cols-3">
+        <div class="card accent-top"><span class="tag">Before &amp; during</span><h4>Assessment <em>for</em> learning</h4><p class="small">Formative checks that shape what happens next — the everyday engine of teaching.</p></div>
+        <div class="card accent-top"><span class="tag">Through reflection</span><h4>Assessment <em>as</em> learning</h4><p class="small">Students self- and peer-assess, building metacognition and ownership.</p></div>
+        <div class="card accent-top"><span class="tag">At key points</span><h4>Assessment <em>of</em> learning</h4><p class="small">Summative evidence of understanding at the end of a phase or unit.</p></div>
+      </div>
+
+      <p>Good PYP assessment is built into the unit from the start. Teachers and students often co-construct <strong>success criteria</strong>, gather evidence in <strong>portfolios</strong>, and use clear, kind, actionable <strong>feedback</strong>. The four dimensions teachers attend to are <strong>monitoring, documenting, measuring,</strong> and <strong>reporting</strong> learning.</p>
+
+      <div class="box translation">
+        <span class="label"><span class="ic">→</span>Teacher Translation</span>
+        <p>You'll likely use fewer one-off graded tests and more ongoing evidence — observations, conversations, student work, and reflections — to build a picture of each learner over time. Plan how you'll <em>capture</em> evidence before the unit starts.</p>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section id="exhibition">
+      <span class="kicker">13 · The culmination</span>
+      <h2>The Exhibition (PYPX)</h2>
+      <p class="lead">In the <strong>final year of the PYP</strong> (typically around age 11–12), students undertake the Exhibition — an extended, collaborative inquiry that brings together everything the programme stands for. It's a milestone, not a test.</p>
+
+      <div class="grid cols-2">
+        <div class="card"><h4>What students do</h4><p class="small">Working in groups, students identify a real issue, plan and carry out an in-depth inquiry, take genuine action, and present their learning to the school community.</p></div>
+        <div class="card"><h4>What it demonstrates</h4><p class="small">It shows students can drive their own learning, apply the essential elements (concepts, skills, the Learner Profile), and act with agency and responsibility.</p></div>
+      </div>
+
+      <div class="box note">
+        <span class="label"><span class="ic">i</span>Good to know</span>
+        <p>The Exhibition is student-led; teachers and mentors guide and support rather than direct. It is often (but not required to be) explored through the <em>Sharing the planet</em> theme, and frequently involves families and community members as audience and contributors.</p>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section id="planning">
+      <span class="kicker">14 · How it's built</span>
+      <h2>Planning &amp; collaboration</h2>
+      <p class="lead">The PYP is a <strong>collaborative</strong> programme. Teachers plan together, document with a shared planner, and map learning across the whole school so children experience a coherent, balanced journey.</p>
+
+      <h3>The Programme of Inquiry (POI)</h3>
+      <p>The POI is the school's master map: it shows which units (under which of the six themes) each year group explores. In the primary years, classes typically explore <strong>up to six units of inquiry per year</strong> — one per theme — while the early years are more flexible. The POI ensures balance and avoids repetition across grades.</p>
+
+      <h3>Anatomy of a Unit of Inquiry (UOI)</h3>
+      <div class="anatomy">
+        <div class="central-idea"><div class="t">Central idea</div><div class="v">One enduring, conceptual statement that anchors the whole unit.</div></div>
+        <div class="row">
+          <div class="chip"><div class="t">Transdisciplinary theme</div><p>Which of the six themes frames the unit.</p></div>
+          <div class="chip"><div class="t">Key concepts</div><p>The conceptual lenses students explore.</p></div>
+          <div class="chip"><div class="t">Lines of inquiry</div><p>2–4 focus areas that unpack the central idea.</p></div>
+          <div class="chip"><div class="t">ATL skills</div><p>Transferable skills taught and practised.</p></div>
+          <div class="chip"><div class="t">Learner Profile</div><p>Attributes intentionally developed.</p></div>
+          <div class="chip"><div class="t">Action &amp; assessment</div><p>How learning is shown and acted upon.</p></div>
+        </div>
+      </div>
+
+      <div class="box translation">
+        <span class="label"><span class="ic">→</span>Teacher Translation</span>
+        <p>You will rarely plan alone. Expect regular <strong>collaborative planning meetings</strong> with your grade team and specialists. The shared planner is a living document you revisit and revise as the inquiry unfolds — not a form you fill in once.</p>
+      </div>
+      <p class="divider-note">Your school operates within the IB's <em>Programme Standards and Practices</em>, the requirements every IB World School is evaluated against. Your PYP Coordinator is your go-to person for how these apply locally.</p>
+    </section>
+
+    <!-- 15 -->
+    <section id="classroom">
+      <span class="kicker">15 · On a Monday morning</span>
+      <h2>What this means in the classroom</h2>
+      <p class="lead">Here's how the philosophy translates into the daily texture of a PYP classroom — the practical shifts most new teachers notice first.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Familiar practice → PYP emphasis (a shift in balance, not a rulebook)</caption>
+          <thead><tr><th>You might be used to…</th><th>In the PYP, lean toward…</th></tr></thead>
+          <tbody>
+            <tr><td>Starting with the answer/content</td><td>Starting with a provocation that sparks questions</td></tr>
+            <tr><td>Covering a topic</td><td>Uncovering a concept students can transfer</td></tr>
+            <tr><td>Teacher sets all goals</td><td>Students help set goals and success criteria</td></tr>
+            <tr><td>Subjects taught in silos</td><td>Subjects connected through a central idea where meaningful</td></tr>
+            <tr><td>One-off tests as the main evidence</td><td>Ongoing evidence: portfolios, conversations, reflection</td></tr>
+            <tr><td>Learning ends at the lesson</td><td>Learning can lead to authentic action</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box note">
+        <span class="label"><span class="ic">i</span>For specialists, TAs &amp; leaders</span>
+        <p><strong>Specialist teachers</strong> (PE, arts, languages) connect to units where authentic — and teach essential disciplinary skills that stand on their own. <strong>Teaching assistants</strong> are part of the learning community, supporting inquiry, documenting learning, and modelling the Learner Profile. <strong>Leaders</strong> protect collaborative planning time and nurture the culture of agency.</p>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section id="examples">
+      <span class="kicker">16 · See it in action</span>
+      <h2>Brief classroom examples</h2>
+      <p class="lead">One short, illustrative example for each major PYP idea. These are typical of PYP practice — not official IB units — to help you picture how the pieces show up.</p>
+
+      <div class="grid cols-2">
+        <div class="card"><span class="tag">Inquiry</span><h4>Following the wonder</h4><p class="small">A puddle on the playground becomes a week of investigation into evaporation, weather, and measurement — sparked by children's own questions.</p></div>
+        <div class="card"><span class="tag">Transdisciplinary</span><h4>Markets &amp; maths</h4><p class="small">A unit on local communities ("How we organize ourselves") uses real maths (money, data), language (interviews), and social studies together.</p></div>
+        <div class="card"><span class="tag">Concept</span><h4>"Change" travels</h4><p class="small">Having explored <em>change</em> in life cycles, students spot it again in seasons, friendships, and stories — and name the connection themselves.</p></div>
+        <div class="card"><span class="tag">Agency</span><h4>Choosing the path</h4><p class="small">Within a shared central idea, groups choose which sub-question to pursue and how to present findings — a poster, a model, or a short film.</p></div>
+        <div class="card"><span class="tag">Learner Profile</span><h4>Named in the moment</h4><p class="small">"You disagreed respectfully and listened — that's being <em>open-minded</em>," a teacher notes during a debate, making the attribute concrete.</p></div>
+        <div class="card"><span class="tag">ATL skills</span><h4>Teaching collaboration</h4><p class="small">Before group work, the class co-builds a "what good collaboration looks like" chart, then reflects against it afterward.</p></div>
+        <div class="card"><span class="tag">Action</span><h4>Small but real</h4><p class="small">After a unit on water, a child starts turning off taps and persuades their family — a genuine lifestyle-choice action they chose.</p></div>
+        <div class="card"><span class="tag">Assessment</span><h4>Evidence over time</h4><p class="small">A student's portfolio shows three drafts of an explanation, with their own reflections on how their thinking changed.</p></div>
+        <div class="card"><span class="tag">Exhibition</span><h4>A community issue</h4><p class="small">A final-year group investigates food waste in the canteen, surveys peers, proposes a plan, and presents it to staff and families.</p></div>
+      </div>
+    </section>
+
+    <!-- 17 -->
+    <section id="misconceptions">
+      <span class="kicker">17 · Clearing the air</span>
+      <h2>Common misconceptions for new PYP teachers</h2>
+      <p class="lead">A few honest corrections that save new teachers a lot of early confusion.</p>
+
+      <div class="myth">
+        <div class="item"><div class="m">Inquiry means I don't teach.</div><div class="r">You teach a great deal — skills, knowledge, and thinking — and use direct instruction when it serves the inquiry. You design learning <em>with</em> students rather than simply transmitting it.</div></div>
+        <div class="item"><div class="m">Agency means children do whatever they want.</div><div class="r">Agency is structured and intentional. You plan carefully to create real, bounded choices — not to remove guidance.</div></div>
+        <div class="item"><div class="m">The PYP tells me exactly what to teach.</div><div class="r">It's a framework, not a fixed syllabus. It defines the structure and the kind of learner; schools and teachers shape much of the content.</div></div>
+        <div class="item"><div class="m">Everything must be transdisciplinary.</div><div class="r">No. Core skills (much of maths and language) are taught directly and connected to units only where it's authentic. Forced links weaken learning.</div></div>
+        <div class="item"><div class="m">The Learner Profile is a behaviour chart.</div><div class="r">It's a developmental set of dispositions, not a reward-and-punishment system. It's named and modelled, not scored.</div></div>
+        <div class="item"><div class="m">Action has to be big and visible.</div><div class="r">Authentic, student-chosen action — however small or quiet — matters more than large teacher-driven projects.</div></div>
+        <div class="item"><div class="m">No tests means no assessment.</div><div class="r">Assessment is constant and rich; it's just more formative and evidence-based than a single graded exam.</div></div>
+        <div class="item"><div class="m">I have to plan it all alone.</div><div class="r">Collaboration is core to the PYP. You plan with your team, and your coordinator supports you.</div></div>
+      </div>
+    </section>
+
+    <!-- 18 -->
+    <section id="glossary">
+      <span class="kicker">18 · Speak the language</span>
+      <h2>Key terminology glossary</h2>
+      <p class="lead">The essential PYP vocabulary, in plain terms. Tap any term to expand.</p>
+
+      <div class="glossary">
+        <details><summary>Agency <span class="plus">+</span></summary><div class="def">The capacity and right of learners to take an active role in their learning — through voice, choice, and ownership.</div></details>
+        <details><summary>Approaches to Learning (ATL) <span class="plus">+</span></summary><div class="def">Transferable skills in five categories: thinking, research, communication, social, and self-management.</div></details>
+        <details><summary>Central idea <span class="plus">+</span></summary><div class="def">The single, enduring, conceptual statement that anchors a unit of inquiry.</div></details>
+        <details><summary>Essential elements <span class="plus">+</span></summary><div class="def">The building blocks of every unit: the Learner Profile, knowledge, conceptual understanding, ATL skills, and action.</div></details>
+        <details><summary>Exhibition (PYPX) <span class="plus">+</span></summary><div class="def">The collaborative, student-led culminating inquiry in the final year of the PYP.</div></details>
+        <details><summary>International-mindedness <span class="plus">+</span></summary><div class="def">The disposition to understand multiple perspectives and act responsibly in an interconnected world; the overarching aim of the programme.</div></details>
+        <details><summary>Key / specified concepts <span class="plus">+</span></summary><div class="def">The seven transferable concepts — form, function, causation, change, connection, perspective, responsibility. Increasingly termed "specified concepts" under new guidance.</div></details>
+        <details><summary>Additional / related concepts <span class="plus">+</span></summary><div class="def">More subject-specific concepts attached to a particular unit. "Related concepts" is the established term; "additional concepts" is the emerging term.</div></details>
+        <details><summary>Lines of inquiry <span class="plus">+</span></summary><div class="def">The two to four focus areas that unpack and structure a central idea.</div></details>
+        <details><summary>Learner Profile <span class="plus">+</span></summary><div class="def">The ten attributes describing the kind of learner the IB aims to develop, shared across all IB programmes.</div></details>
+        <details><summary>Programme of Inquiry (POI) <span class="plus">+</span></summary><div class="def">The whole-school map of which units are taught under each theme in each year group.</div></details>
+        <details><summary>Provocation <span class="plus">+</span></summary><div class="def">A stimulus — object, image, question, experience — used to spark curiosity and surface thinking at the start of inquiry.</div></details>
+        <details><summary>Subject continuum <span class="plus">+</span></summary><div class="def">The newer structure for subject learning progression, replacing the previous "scope and sequence" documents as part of the refresh.</div></details>
+        <details><summary>Transdisciplinary themes <span class="plus">+</span></summary><div class="def">The six globally significant themes that organise the programme of inquiry.</div></details>
+        <details><summary>Unit of Inquiry (UOI) <span class="plus">+</span></summary><div class="def">A single inquiry unit built around a central idea and a transdisciplinary theme.</div></details>
+        <details><summary>Programme Standards &amp; Practices <span class="plus">+</span></summary><div class="def">The IB's requirements that every IB World School is evaluated against.</div></details>
+      </div>
+    </section>
+
+    <!-- 19 -->
+    <section id="refresh">
+      <span class="kicker">19 · Looking ahead</span>
+      <h2>PYP 2026 / upcoming changes</h2>
+      <p class="lead">The IB is rolling out a multi-year <strong>curriculum refresh</strong> for the PYP. It is evolution, not reinvention — the framework's foundations (the three pillars, agency, inquiry, the six themes, the Learner Profile) remain. Below is what's changing and when, with emerging details flagged for you to confirm officially.</p>
+
+      <div class="timeline">
+        <div class="ev"><div class="date">December 2024</div><p>New <strong>transdisciplinary theme descriptors</strong> published on the Programme Resource Centre, with supporting teacher resources for transition.</p></div>
+        <div class="ev"><div class="date">2025 (rolling)</div><p>New <strong>subject guidance</strong> begins replacing the old "scope and sequence" with subject continuums; <strong>learning progressions for inquiry</strong>, additional-language resources, early-years resources, and curriculum-design tools are released.</p></div>
+        <div class="ev"><div class="date">From 2025</div><p>A new workshop, <strong>"Building your IB programme: Primary years,"</strong> becomes available to support all PYP teachers with the updated guidance and conceptual understanding.</p></div>
+        <div class="ev future"><div class="date">By September 2027</div><p><strong>Full transition required.</strong> Schools may adopt the updates at their own pace until this point, when the new guidance becomes fully expected.</p></div>
+      </div>
+
+      <h3>What's actually changing</h3>
+      <div class="grid cols-2">
+        <div class="card"><span class="tag">Themes</span><h4>Refreshed descriptors</h4><p class="small">Same six theme names; new wording that rebalances toward the interconnectedness of human and natural worlds.</p></div>
+        <div class="card"><span class="tag">Concepts</span><h4>Clearer language</h4><p class="small">Terminology shifting toward "specified" and "additional" concepts. The seven concepts and their meanings stay the same.</p></div>
+        <div class="card"><span class="tag">Subjects</span><h4>Scope &amp; sequence → continuums</h4><p class="small">A more concept-driven, connected way of describing progression across subjects.</p></div>
+        <div class="card"><span class="tag">Inquiry</span><h4>Inquiry learning progressions</h4><p class="small">New tools to make growth in inquiry more visible and trackable, supporting agency.</p></div>
+      </div>
+
+      <div class="box upcoming">
+        <span class="label"><span class="ic">↻</span>To be confirmed by official IB guidance</span>
+        <p>"PYP 2026" is not a single official product name — it's shorthand many schools use for this refresh. Exact terminology, document names, and required practices are still settling and may vary by region and rollout phase. <strong>Always verify specifics against the current documents on My&nbsp;IB and the Programme Resource Centre,</strong> and check with your PYP Coordinator about your school's transition plan. Treat third-party summaries (including this guide) as orientation, not authority.</p>
+      </div>
+    </section>
+
+    <!-- 20 -->
+    <section id="first">
+      <span class="kicker">20 · Your first term</span>
+      <h2>Where should a new teacher focus first?</h2>
+      <p class="lead">You don't need to master everything at once. Here's a realistic starting order. Tick items as you go — your progress is saved only on this page during your visit.</p>
+
+      <div class="checklist">
+        <label><input type="checkbox"><span class="txt"><b>Meet your PYP Coordinator</b><span>They are your single most useful resource. Ask for your school's Programme of Inquiry and planners.</span></span></label>
+        <label><input type="checkbox"><span class="txt"><b>Learn your year group's units</b><span>Know the central ideas, themes, and lines of inquiry you'll be teaching this year.</span></span></label>
+        <label><input type="checkbox"><span class="txt"><b>Get comfortable with the Learner Profile</b><span>Start naming attributes out loud as you see them. It's the fastest way to build PYP culture.</span></span></label>
+        <label><input type="checkbox"><span class="txt"><b>Try one genuine inquiry move</b><span>Open a topic with a provocation and a "what do you wonder?" rather than the answer.</span></span></label>
+        <label><input type="checkbox"><span class="txt"><b>Create one small space for student choice</b><span>Let students choose how they show understanding. Build agency gradually.</span></span></label>
+        <label><input type="checkbox"><span class="txt"><b>Notice the concepts</b><span>Pick the key concepts in your current unit and use their questions ("How does it work?") with students.</span></span></label>
+        <label><input type="checkbox"><span class="txt"><b>Plan with your team</b><span>Show up to collaborative planning ready to contribute. You're not meant to do this alone.</span></span></label>
+        <label><input type="checkbox"><span class="txt"><b>Start a simple evidence habit</b><span>Capture learning through photos, notes, or work samples toward portfolios.</span></span></label>
+        <label><input type="checkbox"><span class="txt"><b>Check the official sources</b><span>Find your school's logins for My IB and the Programme Resource Centre, especially for the refresh.</span></span></label>
+        <label><input type="checkbox"><span class="txt"><b>Be patient with yourself</b><span>The PYP is a mindset shift. Small, consistent moves build real practice over a year.</span></span></label>
+      </div>
+
+      <div class="at-a-glance">
+        <div class="t">The PYP at a glance</div>
+        <ul>
+          <li>It's a <strong>framework</strong> for ages 3–12, built on inquiry and the whole child.</li>
+          <li>Everything centres on student <strong>agency</strong> — voice, choice, and ownership.</li>
+          <li>Learning connects across subjects through <strong>six transdisciplinary themes</strong>.</li>
+          <li>Units are built from <strong>concepts, skills, the Learner Profile, and action</strong>.</li>
+          <li>Assessment is ongoing and supportive; the <strong>Exhibition</strong> caps the journey.</li>
+          <li>Teachers <strong>plan together</strong>, guided by the PYP Coordinator.</li>
+          <li>A refresh is rolling out through <strong>September 2027</strong> — confirm specifics officially.</li>
+        </ul>
+      </div>
+
+      <p class="divider-note">This guide is an independent orientation for educators, drawing on publicly available International Baccalaureate descriptions of the PYP and reputable reporting on the 2024–2027 refresh. It is not produced or endorsed by the IB. For authoritative, current requirements, always consult official IB documentation.</p>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<button class="backtop" id="backtop" aria-label="Back to top">↑</button>
+
+<footer>
+  <div class="shell">
+    <h4>About this guide</h4>
+    <p>Created as a plain-language onboarding reference for teachers, teaching assistants, specialists, coordinators, and leaders who are new to the IB Primary Years Programme. The PYP framework and its current refresh continue to evolve; treat this document as orientation and confirm specifics with your PYP Coordinator and official IB sources (My&nbsp;IB and the Programme Resource Centre).</p>
+    <p style="margin-top:1rem;color:#8a998e">Background drawn from publicly available sources, including:</p>
+    <ul class="src-list">
+      <li>ibo.org — Primary Years Programme &amp; curriculum framework</li>
+      <li>ibo.org — "The learner" and Learner Profile</li>
+      <li>IB Transdisciplinary theme descriptors (2024) and transition guidance</li>
+      <li>Reporting on the 2025–2027 PYP curriculum refresh (subject continuums, inquiry learning progressions, concept terminology)</li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  var progress = document.getElementById('progress');
+  var backtop = document.getElementById('backtop');
+  function onScroll(){
+    var h = document.documentElement;
+    var scrolled = h.scrollTop;
+    var max = h.scrollHeight - h.clientHeight;
+    var pct = max > 0 ? (scrolled / max) * 100 : 0;
+    progress.style.width = pct + '%';
+    if(scrolled > 600){ backtop.classList.add('show'); } else { backtop.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  backtop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:(window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto':'smooth')});
+  });
+
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('nav.toc-desktop a'));
+  var linkById = {};
+  tocLinks.forEach(function(a){ linkById[a.getAttribute('href').slice(1)] = a; });
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+
+  if('IntersectionObserver' in window){
+    var current = null;
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var id = entry.target.id;
+          if(current && linkById[current]) linkById[current].classList.remove('active');
+          if(linkById[id]){ linkById[id].classList.add('active'); current = id; }
+        }
+      });
+    }, {rootMargin:'-20% 0px -70% 0px', threshold:0});
+    sections.forEach(function(s){ observer.observe(s); });
+  }
+
+  var mobileToc = document.querySelector('.toc-mobile');
+  if(mobileToc){
+    mobileToc.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ mobileToc.removeAttribute('open'); });
+    });
+  }
+</script>
+</body>
+</html>
